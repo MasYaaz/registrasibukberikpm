@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<script>
+			// Cek LocalStorage atau Preferensi Sistem User
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

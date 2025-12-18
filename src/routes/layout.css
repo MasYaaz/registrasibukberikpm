@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+	--color-primary: #283618;
+	--color-secondary: #ececec;
+	--color-brown: #dda15e;
+	--color-green: #606c38;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+	user-select: none !important;
+}
+
+/* ==========================================================
+   SCROLLBAR: Light Mode
+   ========================================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #ececec;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #283618;
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
+}
+
+/* Hover effect (light mode only) */
+::-webkit-scrollbar-thumb:hover {
+	background-color: #606c38; /* hijau olive */
+}
+
+/* ==========================================================
+   SCROLLBAR: Dark Mode
+   ========================================================== */
+
+html.dark ::-webkit-scrollbar-track {
+	background-color: #283618;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+	background-color: #ececec;
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
+}
+
+/* Hover effect (dark mode only) */
+html.dark ::-webkit-scrollbar-thumb:hover {
+	background-color: #fefae0;
+}
+
+/* ==========================================================
+   SCROLLBAR: HIDDEN
+   ========================================================== */
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
