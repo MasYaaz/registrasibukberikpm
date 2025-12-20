@@ -1,9 +1,17 @@
 @import 'tailwindcss';
-@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+	font-family: 'Fonarto';
+	src: url('/fonts/Fonarto.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @theme {
 	--color-primary: #5b2f03;
 	--color-secondary: #fefae9;
 	--color-krem: #fcefb4;
+	--font-heading: 'Fonarto', serif;
 }
 
 html {

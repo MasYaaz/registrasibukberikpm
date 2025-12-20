@@ -5,7 +5,7 @@ export const load = async ({ params }) => {
 	// Ambil data hadirin berdasarkan kode_tiket di URL
 	const { data, error: dbError } = await supabase
 		.from('data_hadirin')
-		.select('nama,no_telpon,jumlah,domisili,kode_tiket,created_at')
+		.select('nama, no_telpon, jumlah, domisili, kode_tiket, created_at')
 		.eq('kode_tiket', params.kode)
 		.single();
 

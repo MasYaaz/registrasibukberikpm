@@ -18,11 +18,9 @@
 	}
 </script>
 
-<div
-	class="w-full rounded-xl border-3 border-primary p-0.5 transition-all duration-600 md:w-[40%] dark:border-secondary"
->
+<div class="w-full rounded-xl border-3 border-primary p-0.5 transition-all duration-600 md:w-[40%]">
 	<div
-		class="flex w-full items-center justify-between rounded-lg bg-primary p-1 font-medium text-secondary transition-all duration-600 md:p-2 dark:bg-secondary dark:text-primary"
+		class="flex w-full items-center justify-between rounded-lg bg-primary p-1 font-medium text-secondary transition-all duration-600 md:p-2"
 	>
 		<div class="flex w-[10%] justify-center md:w-[30%]">
 			<Users class="h-4 w-4 md:h-6 md:w-6" />
@@ -37,12 +35,12 @@
 				placeholder="Jumlah Rombongan (Termasuk anda sendiri)"
 				bind:value
 				oninput={handleInput}
-				class="w-full truncate bg-transparent py-2 text-xs placeholder-secondary focus:ring-0 focus:outline-none md:text-sm lg:text-base dark:placeholder-primary"
+				class="w-full truncate bg-transparent py-2 text-xs placeholder-secondary focus:ring-0 focus:outline-none md:text-sm lg:text-base"
 			/>
 
 			{#if value}
 				<span
-					class="pointer-events-none absolute left-2 text-xs text-secondary transition-all duration-300 md:text-sm lg:text-base dark:text-primary"
+					class="pointer-events-none absolute left-2 text-xs text-secondary transition-all duration-300 md:text-sm lg:text-base"
 				>
 					&nbsp; Orang
 				</span>

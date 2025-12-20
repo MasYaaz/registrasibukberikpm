@@ -21,9 +21,10 @@
 <section class="flex h-240 w-full flex-col items-center justify-end sm:h-full sm:justify-center">
 	<form
 		autocomplete="off"
+		spellcheck="false"
 		method="POST"
 		use:enhance={handleEnhance}
-		class="flex h-[95%] w-full flex-col items-center justify-around gap-6 rounded-4xl bg-krem/80 px-8 pb-40 backdrop-blur-[2px] transition-all duration-600 sm:h-full sm:justify-around sm:bg-secondary/0 sm:pb-0 sm:backdrop-blur-none md:gap-8 lg:gap-10 lg:py-16"
+		class="flex h-[95%] w-full flex-col items-center justify-around gap-6 rounded-[60px] bg-krem/80 px-8 pb-40 backdrop-blur-[2px] transition-all duration-600 sm:h-full sm:justify-around sm:bg-secondary/0 sm:pb-0 sm:backdrop-blur-none md:gap-8 lg:gap-10 lg:py-16"
 	>
 		<Title />
 		<div class="flex w-full max-w-md flex-col items-center gap-4 sm:max-w-lg">
