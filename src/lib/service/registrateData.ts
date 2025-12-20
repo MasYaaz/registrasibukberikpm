@@ -2,15 +2,11 @@ import { supabase } from '$lib/supabase/supabaseClient';
 
 // Fungsi untuk membuat kode tiket
 function generateTicket(jumlah: string): string {
-	const date = new Date();
-	// Format tanggal: YYYYMMDD (contoh: 20231025)
-	const formattedDate =
-		date.getFullYear().toString() +
-		(date.getMonth() + 1).toString().padStart(2, '0') +
-		date.getDate().toString().padStart(2, '0');
+	// Mengonversi waktu saat ini ke string alfanumerik pendek
+	const shortId = Date.now().toString(36).toUpperCase();
 
-	// Format hasil: A-20231025-5
-	return `A-${formattedDate}-${jumlah}`;
+	// Format hasil: BB-LNY7XZK8-5
+	return `BB-${shortId}-${jumlah}`;
 }
 
 export async function InsertData(nama: string, noTelpon: string, jumlah: string, domisili: string) {
