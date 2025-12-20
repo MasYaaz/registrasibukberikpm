@@ -10,6 +10,14 @@
 
 <svelte:head>
 	<link rel="icon" type="image/svg+xml" href={icon} />
+	<link
+		rel="preload"
+		href="/fonts/Fonarto.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin="anonymous"
+		fetchpriority="high"
+	/>
 	<title>Registrasi Bukber IKPM</title>
 </svelte:head>
 
