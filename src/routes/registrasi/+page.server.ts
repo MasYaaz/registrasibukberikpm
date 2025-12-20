@@ -18,11 +18,6 @@ export const actions = {
 		const result = await InsertData(nama, noTelpon, jumlah, domisili);
 
 		if (!result || !result.success) {
-			console.error(' Galat Simpan Data:', {
-				timestamp: new Date().toISOString(),
-				input: values,
-				errorFromDB: result?.error || 'Unknown Error'
-			});
 			return fail(500, { ...values, error: 'Gagal menyimpan data.' });
 		}
 
