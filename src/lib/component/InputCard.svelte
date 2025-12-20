@@ -7,22 +7,39 @@
 	import RegistrateButton from './InputCard/RegistrateButton.svelte';
 	import InputNoTelpon from './InputCard/InputNoTelpon.svelte';
 	import InputJumlahPeserta from './InputCard/InputJumlahPeserta.svelte';
+	import InputDomisili from './InputCard/InputDomisili.svelte';
+	import logo from '$lib/assets/logo.svg';
+
+	let formData = {
+		nama: '',
+		noTelpon: '',
+		jumlah: '',
+		domisili: ''
+	};
+
+	$: isInvalid = Object.values(formData).some((val) => !val);
 </script>
 
-<section class="flex h-[80%] w-full max-w-2xl flex-col items-center justify-center lg:flex-row">
+<section
+	class="flex h-240 w-full max-w-2xl flex-col items-center justify-end sm:h-full sm:justify-center"
+>
+	<img class="m-5 w-30 sm:hidden" src={logo} alt="logo bukber ikpm" />
 	<form
 		autocomplete="off"
 		method="POST"
 		use:enhance={handleEnhance}
-		class="flex h-140 w-full flex-col items-center justify-around gap-6 rounded-3xl p-8 pt-12 transition-all duration-600 md:h-200 md:gap-8 lg:h-full lg:gap-10 lg:py-16"
+		class="flex h-[90%] w-full flex-col items-center justify-start gap-6 rounded-4xl bg-krem/80 px-6 backdrop-blur-[2px] transition-all duration-600 sm:h-full sm:justify-around sm:bg-secondary/0 sm:pb-0 sm:backdrop-blur-none md:gap-8 md:px-10 lg:gap-10 lg:px-16 lg:py-16"
 	>
 		<Title />
-		<div class="flex w-full flex-col items-center gap-4">
-			<InputNama />
-			<InputNoTelpon />
-			<InputJumlahPeserta />
+		<div class="flex w-full max-w-md flex-col items-center gap-4 sm:max-w-lg">
+			<InputNama bind:value={formData.nama} />
+			<InputNoTelpon bind:value={formData.noTelpon} />
+			<div class="flex w-full flex-col gap-4 md:w-[80%] md:flex-row md:gap-2">
+				<InputJumlahPeserta bind:value={formData.jumlah} />
+				<InputDomisili bind:value={formData.domisili} />
+			</div>
 		</div>
-		<RegistrateButton />
+		<RegistrateButton disabled={isInvalid} />
 		<SupportCard />
 	</form>
 </section>

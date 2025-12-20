@@ -1,45 +1,42 @@
+import { InsertData } from '$lib/service/registrateData';
 import { fail } from '@sveltejs/kit';
-import { env } from '$env/dynamic/private';
 
 export const actions = {
 	default: async ({ request, cookies }) => {
 		const data = await request.formData();
-		const username = data.get('user')?.toString() ?? '';
-		const password = data.get('pass')?.toString() ?? '';
+		const nama = data.get('nama')?.toString() ?? '';
+		const noTelpon = data.get('noTelpon')?.toString() ?? '';
+		const jumlah = data.get('jumlah')?.toString() ?? '';
+		const domisili = data.get('domisili')?.toString() ?? '';
 
-		if (!username && !password) {
-			return fail(400, { error: 'User & Password tidak boleh kosong' });
+		const values = { nama, noTelpon, jumlah, domisili };
+
+		if (!nama || !noTelpon || !jumlah || !domisili) {
+			return fail(400, { ...values, error: 'Semua kolom wajib diisi!' });
 		}
 
-		if (!username) {
-			return fail(400, { error: 'User tidak boleh kosong' });
+		const result = await InsertData(nama, noTelpon, jumlah, domisili);
+
+		if (!result || !result.success) {
+			return fail(500, { ...values, error: 'Gagal menyimpan data.' });
 		}
 
-		if (!password) {
-			return fail(400, { error: 'Password tidak boleh kosong' });
-		}
+		const kodeTiket = result.data.kode_tiket;
 
-		// validasi user dan password
-		if (username !== env.ADMIN_USER) {
-			return fail(401, { error: 'User salah' });
-		}
-
-		if (password !== env.ADMIN_PASS) {
-			return fail(401, { error: 'Password salah' });
-		}
-
-		// Minimal token random
-		const token = crypto.randomUUID();
-
-		// Set session cookie
-		cookies.set('session', token, {
+		// Tetap set cookie di server agar tersimpan secara permanen
+		cookies.set('session_tiket', kodeTiket, {
 			path: '/',
 			secure: true,
 			httpOnly: true,
 			sameSite: 'strict',
-			maxAge: 60 * 60 * 4 // 4 jam
+			maxAge: 60 * 60 * 24 * 365 * 1
 		});
 
-		return { success: 'Login Berhasil..!' };
+		// Kembalikan data tiket, jangan di-redirect di sini
+		return {
+			success: true,
+			message: 'Pendaftaran Berhasil!',
+			kodeTiket: kodeTiket
+		};
 	}
 };

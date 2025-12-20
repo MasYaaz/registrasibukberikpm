@@ -2,10 +2,11 @@
 import { redirect } from '@sveltejs/kit';
 
 export const load = async ({ cookies }) => {
-	const session = cookies.get('session');
+	cookies.delete('session_tiket', { path: '/' });
+	const session = cookies.get('session_tiket');
 
 	if (session) {
-		throw redirect(302, '/finish');
+		throw redirect(307, `/tiket/${session}`);
 	}
 
 	throw redirect(302, '/registrasi');

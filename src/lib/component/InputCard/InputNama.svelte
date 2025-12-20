@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { User } from 'lucide-svelte';
+	import { IdCard } from 'lucide-svelte';
+	export let value = '';
 </script>
 
 <div
@@ -9,13 +10,15 @@
 		class="flex w-full items-center justify-between rounded-lg bg-primary p-1 font-medium text-secondary transition-all duration-600 md:p-2 dark:bg-secondary dark:text-primary"
 	>
 		<div class="flex w-[10%] justify-center">
-			<User class="h-4 w-4 md:h-6 md:w-6" />
+			<IdCard class="h-4 w-4 md:h-6 md:w-6" />
 		</div>
 		<input
+			title="Masukkan nama anda."
 			type="text"
 			name="nama"
+			bind:value
 			placeholder="Masukkan Nama Anda"
-			class="w-[86%] truncate py-2 text-xs placeholder-secondary transition-all duration-600 focus:ring-0 focus:outline-none md:text-sm lg:text-base dark:placeholder-primary"
+			class="w-[89%] truncate py-2 text-xs placeholder-secondary transition-all duration-600 focus:ring-0 focus:outline-none md:text-sm lg:text-base dark:placeholder-primary"
 		/>
 	</div>
 </div>

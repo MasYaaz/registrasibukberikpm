@@ -1,24 +1,21 @@
 <script>
-	import { Users } from 'lucide-svelte';
+	import logo from '$lib/assets/logo.svg';
 </script>
 
-<div class="flex h-[20%] w-full flex-col items-center justify-center gap-2">
-	<div
-		class="rounded-3xl bg-primary p-5 text-secondary shadow-md/50 transition-all duration-600 dark:bg-secondary dark:text-primary"
-	>
-		<Users class="h-10 w-10 lg:h-15 lg:w-15" />
-	</div>
-
+<div
+	class="flex h-[12%] w-full flex-col items-center justify-end sm:h-[20%] sm:justify-center sm:gap-2"
+>
+	<img class="hidden w-30 sm:flex" src={logo} alt="logo bukber ikpm" />
 	<div class="text-center">
 		<h2
-			class="text-3xl font-black text-primary uppercase transition-all duration-600 lg:text-5xl dark:text-secondary"
+			class="text-3xl font-black text-primary uppercase transition-all duration-600 sm:text-4xl dark:text-secondary"
 		>
-			Login
+			Form Registrasi
 		</h2>
 		<h2
-			class="text-lg font-bold text-primary uppercase transition-all duration-600 md:text-xl lg:text-2xl dark:text-secondary"
+			class="text-base font-bold text-primary uppercase transition-all duration-600 sm:text-lg dark:text-secondary"
 		>
-			Admin
+			Buka Bersama IKPM se-Jawa Timur
 		</h2>
 	</div>
 </div>
