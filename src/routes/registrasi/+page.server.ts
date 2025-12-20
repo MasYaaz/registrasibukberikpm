@@ -34,8 +34,7 @@ export const actions = {
 
 		// Kembalikan data tiket, jangan di-redirect di sini
 		return {
-			success: true,
-			message: 'Pendaftaran Berhasil!',
+			success: 'Pendaftaran Berhasil!',
 			kodeTiket: kodeTiket
 		};
 	}

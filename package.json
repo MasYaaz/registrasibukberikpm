@@ -31,7 +31,6 @@
 	"dependencies": {
 		"@rollup/rollup-win32-x64-msvc": "^4.53.5",
 		"@supabase/supabase-js": "^2.86.0",
-		"exceljs": "^4.4.0",
 		"lucide-svelte": "^0.555.0",
 		"qrcode": "^1.5.4"
 	}
