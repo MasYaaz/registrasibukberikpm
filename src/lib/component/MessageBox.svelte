@@ -16,7 +16,7 @@
 	>
 		<div class="rounded-2xl border-3 border-secondary p-1">
 			<div
-				class="fade-in font-heading flex h-50 w-65 flex-col items-center justify-center gap-3 rounded-xl bg-secondary px-8 py-6 shadow-xl transition-transform duration-300 md:h-60 md:w-80"
+				class="fade-in flex h-50 w-65 flex-col items-center justify-center gap-3 rounded-xl bg-secondary px-8 py-6 shadow-xl transition-transform duration-300 md:h-60 md:w-80"
 			>
 				{#if !$statusMessage}
 					<!-- Spinner saat belum ada pesan (Buat Loading) -->
