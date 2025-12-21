@@ -27,8 +27,8 @@ export async function InsertData(nama: string, noTelpon: string, jumlah: string,
 
 	if (error) {
 		console.error('Gagal insert data:', error.message);
-		return { success: false, error };
+		return { error };
 	}
 
-	return { success: true, data };
+	return { data };
 }
